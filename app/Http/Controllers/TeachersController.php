@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class TeachersController extends Controller
@@ -13,7 +14,8 @@ class TeachersController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::all();
+        return view('Teachers.index')->with('teachers',$teachers);
     }
 
     /**
@@ -23,7 +25,7 @@ class TeachersController extends Controller
      */
     public function create()
     {
-        //
+        return view('Teachers.create');
     }
 
     /**
@@ -34,7 +36,18 @@ class TeachersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation
+        $this->validate($request,array(
+            'Name' =>'required',
+            'Subject' =>'required',
+        ));
+
+        //create
+        $teachers = new Teacher;
+        $teachers['Name'] = $request ->get('Name');
+        $teachers['Subject'] = $request ->get('Subject');
+        $teachers->save();
+        return redirect('/teachers');
     }
 
     /**
@@ -45,7 +58,8 @@ class TeachersController extends Controller
      */
     public function show($id)
     {
-        //
+        $teacher = Teacher::find($id);
+        return view('Teachers.show', compact('teacher' ,'id'));
     }
 
     /**
@@ -56,7 +70,8 @@ class TeachersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teacher = Teacher::find($id);
+        return view('Teachers.edit',compact('teacher' ,'id'));
     }
 
     /**
@@ -68,7 +83,18 @@ class TeachersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validation
+        $this->validate($request,array(
+            'Name' =>'required',
+            'Subject' =>'required',
+        ));
+
+        //create
+        $teachers = Teacher::find($id);
+        $teachers['Name'] = $request ->get('Name');
+        $teachers['Subject'] = $request ->get('Subject');
+        $teachers->save();
+        return redirect('/teachers');
     }
 
     /**

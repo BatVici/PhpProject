@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\TypeofCabinet;
 use Illuminate\Http\Request;
+
 
 class TypeofCabinetsController extends Controller
 {
@@ -13,7 +15,8 @@ class TypeofCabinetsController extends Controller
      */
     public function index()
     {
-        //
+        $types = TypeofCabinet::all();
+        return view('TypeOfCabinets.index')->with('types',$types);
     }
 
     /**
