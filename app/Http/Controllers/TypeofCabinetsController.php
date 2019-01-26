@@ -26,7 +26,7 @@ class TypeofCabinetsController extends Controller
      */
     public function create()
     {
-        //
+        return view('TypeOfCabinets.create');
     }
 
     /**
@@ -37,7 +37,18 @@ class TypeofCabinetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation
+        $this->validate($request,array(
+            'Type' =>'required',
+            'Description' =>'required',
+        ));
+
+        //create
+        $types = new TypeofCabinet;
+        $types['Type'] = $request ->get('Type');
+        $types['Description'] = $request ->get('Description');
+        $types->save();
+        return redirect('/types');
     }
 
     /**
@@ -48,7 +59,8 @@ class TypeofCabinetsController extends Controller
      */
     public function show($id)
     {
-        //
+        $types = TypeofCabinet::find($id);
+        return view('TypeOfCabinets.show', compact('types' ,'id'));
     }
 
     /**
@@ -59,7 +71,8 @@ class TypeofCabinetsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $types = TypeofCabinet::find($id);
+        return view('TypeOfCabinets.edit',compact('types' ,'id'));
     }
 
     /**
@@ -71,7 +84,18 @@ class TypeofCabinetsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validation
+        $this->validate($request,array(
+            'Type' =>'required',
+            'Description' =>'required',
+        ));
+
+        //create
+        $types = new TypeofCabinet;
+        $types['Type'] = $request ->get('Name');
+        $types['Description'] = $request ->get('Description');
+        $types->save();
+        return redirect('/types');
     }
 
     /**
