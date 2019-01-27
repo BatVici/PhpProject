@@ -7,6 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## About the System
+
+It is a system that helps the customers to keep track of the cabinets and their usage.It has three tables that inform us about the cabinets,the teachers and the type of the cabinets. In the table 'Cabinets' we can see the number of the cabinet,the capacity,the type and we can see if it is available at the moment or not. In the table 'Teachers' we can see the name of the teacher and the subject.And in the table 'Type of cabinets' we can see the type of cabinet and a description.
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
