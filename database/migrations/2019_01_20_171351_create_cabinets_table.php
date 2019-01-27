@@ -19,7 +19,8 @@ class CreateCabinetsTable extends Migration
             $table->integer ('Number');
             $table->integer ('Capacity');
             $table->string ('Type','64');
-            $table->string ('Available','64');
+
+
         });
     }
 

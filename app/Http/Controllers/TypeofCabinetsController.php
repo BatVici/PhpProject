@@ -106,6 +106,9 @@ class TypeofCabinetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $types = TypeofCabinet::find($id);
+        $types -> delete();
+
+        return redirect('/types')->with('success', 'Type has been deleted Successfully');
     }
 }
