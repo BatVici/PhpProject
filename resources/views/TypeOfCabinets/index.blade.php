@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+    <a href="/types/create">Create</a>
     <style>
         .uper {
             margin-top: 40px;

@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
     <style>
         .uper {
             margin-top: 40px;
