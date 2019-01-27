@@ -114,6 +114,9 @@ class CabinetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cabinet = Cabinet::find($id);
+        $cabinet -> delete();
+
+        return redirect('/cabinets')->with('success', 'Cabinet has been deleted Successfully');
     }
 }
